@@ -1,13 +1,15 @@
 {
     "java.project.sourcePaths": [
         "src",
-        "grammars/src"
+        "grammars/generated"
     ],
     "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "/usr/local/Cellar/antlr/4.9.3/antlr-4.9.3-complete.jar"
-    ],
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/usr/local/Cellar/antlr/4.9.3/antlr-4.9.3-complete.jar"
+        ]
+    },
     "antlr4.referencesCodeLens.enabled": true,
     "antlr4.generation": {
         "mode": "external",
@@ -16,7 +18,6 @@
         "visitors": false,
         "outputDir": "src/dev/c00a5b70/hello",
         "package": "dev.c00a5b70.hello",
-        "alternativeJar": "/usr/local/Cellar/antlr/4.9.3/antlr-4.9.3-complete.jar",
-        "additionalParameters": "-visitor"
+        "alternativeJar": "/usr/local/Cellar/antlr/4.9.3/antlr-4.9.3-complete.jar"
     },
 }

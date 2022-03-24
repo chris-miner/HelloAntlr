@@ -1,4 +1,4 @@
 grammars/.antlr
-grammars/src
+grammars/generated
 bin
 

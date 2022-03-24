@@ -18,23 +18,39 @@ import dev.c00a5b70.hello.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        // check if a file was specified
         String inputFile = null;
         if (args.length > 0)
             inputFile = args[0];
+
+        // create an input character stream from a file
         InputStream is = System.in;
         if (inputFile != null) {
             is = new FileInputStream(inputFile);
         }
 
+        // create a CharStream that reads from standard input
         CharStream input = CharStreams.fromStream(is);
 
+        // create a lexer that feeds off of input CharStream
         HelloLexer lexer = new HelloLexer(input);
+
+        // create a buffer of tokens pulled from the lexer
         CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        // create a parser that feeds off the tokens buffer
         HelloParser parser = new HelloParser(tokens);
+
+        // parse the input, and get the root node of the tree
         ParseTree tree = parser.r(); // parse
 
-        ParseTreeWalker walker = new ParseTreeWalker(); // create standard walker
-        ExtractInterfaceListener extractor = new ExtractInterfaceListener(parser);
-        walker.walk(extractor, tree); // initiate walk of tree with listener
+        // do something with the tree
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        // create a generic parse tree visitor that can trigger callbacks
+        AppListener extractor = new AppListener(parser);
+
+        // walk the tree with the listener
+        walker.walk(extractor, tree);
     }
 }
