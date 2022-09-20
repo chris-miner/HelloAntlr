@@ -7,7 +7,7 @@ The project structure was created with the Create Java Project... command in vsc
 brew install antlr4
 ```
 
-While the grammar is defined in `Hello.g4`, the parser and lexer are generated from it in the files `HelloLexer.java` and `HelloParser.java`.  To generate these files, I used the ANTLR4 grammar syntax support extension by Mike Lishke (mike-lischke.vscode-antlr4).  The files are generated in the grammars/generated folder each time the grammar is changed.
+While the grammar is defined in `Hello.g4`, the parser and lexer are generated from it as the files `HelloLexer.java` and `HelloParser.java`.  To generate these files, I used the ANTLR4 grammar syntax support extension by Mike Lishke (mike-lischke.vscode-antlr4).  The files are generated in the grammars/generated folder each time the grammar is changed.
 
 
 
